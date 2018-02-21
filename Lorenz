@@ -19,10 +19,10 @@ def lorenz(x, y, z, s=10, r=28, b=2.667):
     
 print("Enter the dt (the step)")
 print("Best values are around 0.01")
-dt = input("")
+dt = float(input(""))
 print("Enter the number of step")
 print("Best values are greater than 10000")
-num_steps = input("")
+num_steps = int(input(""))
 
 # Need one more for the initial values
 xs = np.empty((num_steps + 1,))
@@ -30,9 +30,9 @@ ys = np.empty((num_steps + 1,))
 zs = np.empty((num_steps + 1,))
 
 # Set initial values
-xs[0] = input("Set the x value (best 0): ")
-ys[0] = input("Set the x value (best 1): ")
-zs[0] = input("Set the x value (best 1.05): ")
+xs[0] = float(input("Set the x value (best 0): "))
+ys[0] = float(input("Set the x value (best 1): "))
+zs[0] = float(input("Set the x value (best 1.05): "))
 
 # Step through "time", calculating the partial derivatives at the current point
 # and using them to estimate the next point
