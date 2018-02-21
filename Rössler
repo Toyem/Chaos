@@ -18,8 +18,12 @@ def rossler(x, y, z, a=0.2, b=0.2, c=5.7):
     return x_dot, y_dot, z_dot
 
 
-dt = 0.01
-num_steps = 10000
+print("Enter the dt (the step)")
+print("Best values are around 0.01")
+dt = float(input(""))
+print("Enter the number of step")
+print("Best values are greater than 10000")
+num_steps = int(input(""))
 
 # Need one more for the initial values
 xs = np.empty((num_steps + 1,))
@@ -27,7 +31,9 @@ ys = np.empty((num_steps + 1,))
 zs = np.empty((num_steps + 1,))
 
 # Set initial values
-xs[0], ys[0], zs[0] = (0, 0, 0)
+xs[0] = float(input("Set the x value (best 0): "))
+xs[0] = float(input("Set the y value (best 0): "))
+xs[0] = float(input("Set the z value (best 0): "))
 
 # Step through "time", calculating the partial derivatives at the current point
 # and using them to estimate the next point
