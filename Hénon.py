@@ -1,11 +1,9 @@
-
-
 import matplotlib.pyplot as plt
 import numpy as np
-
-
+ 
+ 
 """------Variable------"""
-
+ 
 # paramètres
 a = 0
 b = 0
@@ -13,10 +11,10 @@ n = 1
 # premier de la suite X(n)
 X_0 = 0
 Y_0 = 0
-
+ 
 """----Fonctions-----"""
-
-
+ 
+ 
 def verifpara(bol, para):
     if (para == "a"):
         if (bol == False):
@@ -59,8 +57,8 @@ def verifpara(bol, para):
                 return (n)
         except ValueError:
             veriffloat(False, "n",)
-
-
+ 
+ 
 def suiteY(xo, yo, a, b, k,):  # ( X_0, Y_0, A, B, n,)
     ty = np.arange(k, dtype=float)
     tx = np.arange(k, dtype=float)
@@ -71,10 +69,10 @@ def suiteY(xo, yo, a, b, k,):  # ( X_0, Y_0, A, B, n,)
         ty[i + 1] = b * tx[i]
         tx[i + 1] = 1 + ty[i] - a * tx[i] * tx[i]
         i = i + 1
-
+ 
     return(ty)
-
-
+ 
+ 
 def suiteX(xo, yo, a, b, k,):  # ( X_0, Y_0, A, B, n,)
     ty = np.arange(k, dtype=float)
     tx = np.arange(k, dtype=float)
@@ -85,12 +83,12 @@ def suiteX(xo, yo, a, b, k,):  # ( X_0, Y_0, A, B, n,)
         ty[i + 1] = b * tx[i]
         tx[i + 1] = 1 + ty[i] - a * tx[i] * tx[i]
         i = i + 1
-
+ 
     return(tx)
-
-
+ 
+ 
 """----Programme----"""
-
+ 
 X_0 = verifpara(True, 'x',)
 print(X_0)
 Y_0 = verifpara(True, 'y',)
@@ -101,6 +99,6 @@ b = verifpara(True, "b",)
 print(b)
 n = verifpara(True, "n",)
 print(n)
-
+ 
 plt.scatter(suiteX(X_0, Y_0, a, b, n), suiteY(X_0, Y_0, a, b, n))
 plt.show()
