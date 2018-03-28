@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
- 
+import matplotlib.patches as patches
  
 """------Variable------"""
  
@@ -88,7 +88,7 @@ def suiteX(xo, yo, a, b, k,):  # ( X_0, Y_0, A, B, n,)
  
  
 """----Programme----"""
- 
+"""
 X_0 = verifpara(True, 'x',)
 print(X_0)
 Y_0 = verifpara(True, 'y',)
@@ -99,6 +99,38 @@ b = verifpara(True, "b",)
 print(b)
 n = verifpara(True, "n",)
 print(n)
- 
+
 plt.scatter(suiteX(X_0, Y_0, a, b, n), suiteY(X_0, Y_0, a, b, n))
+plt.show()
+
+
+plt.scatter(suiteX(1, 1, 1.4, 0.3, 100000), suiteY(1, 1, 1.4, 0.3, 100000))
+"""
+
+
+
+"""Actracteur no zoomé"""
+ax = plt.subplot(111)
+ax.scatter(suiteX(1, 1, 1.4, 0.3, 100000), suiteY(1, 1, 1.4, 0.3, 100000),0.5)
+
+
+""" 1ère fenêtre de zoom"""
+ax2 = plt.axes([.2, 0.6, .3, .3])
+ax2.scatter(suiteX(1, 1, 1.4, 0.3, 10000000), suiteY(1, 1, 1.4, 0.3, 10000000),0.01)
+ax2.axis([0.302,0.312,0.205,0.215])
+rect1 = patches.Rectangle((0.302,0.205),0.01,0.01,linewidth=1,edgecolor='r',facecolor='none')
+ax.add_patch(rect1)
+plt.yticks(visible=False)
+plt.xticks(visible=False)
+
+""" 2nde fenêtre de zoom"""
+ax3 = plt.axes([.6, 0.6, .3, .3])
+ax3.scatter(suiteX(1, 1, 1.4, 0.3, 10000000), suiteY(1, 1, 1.4, 0.3, 10000000),0.01)
+ax3.axis([0.305,0.3055,0.2105,0.211])
+rect2 = patches.Rectangle((0.305,0.2105),0.0005,0.0005,linewidth=1,edgecolor='g',facecolor='none')
+ax.add_patch(rect2)
+plt.yticks(visible=False)
+plt.xticks(visible=False)
+
+
 plt.show()
